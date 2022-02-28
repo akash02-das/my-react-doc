@@ -1,15 +1,8 @@
 import React from 'react';
+import Button from "./Button";
 
 // Class Component / Stateful component
 class Clock extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     time: new Date(),
-  //   };
-  // }
-
-  // Or shortcut way to write  state
   state = {
     time: new Date(),
     language: 'bn-BD'
@@ -35,14 +28,15 @@ class Clock extends React.Component {
   }
 
   render() {
+    console.log("Clock Component Rendered")
     const { time, language } = this.state; // Destructuring from state
     let clockTime = time.toLocaleTimeString(language);
 
     return (
       <div>
         <h1>Current Time: {clockTime}</h1>
-        {/*Used onClick event handler*/}
-        <button onClick={() => this.changeLanguage('en-US')}>Change Language</button>
+        {/* Rendered Button component and this component no need to render everytime when Clock component have rendered */}
+        <Button handler={this.changeLanguage} selectLanguage='en-US' />
       </div>
     );
   }
