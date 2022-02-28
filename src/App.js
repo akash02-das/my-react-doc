@@ -4,9 +4,8 @@ function App() {
   return (
     // Return 'Clock' component
     <>
-      {/* Pass props named locale in the 'Clock' component */}
-      <Clock locale='bn-BD' />
-      <Clock locale='en-US' />
+      {/* Pass props named as locale in the 'Clock' component */}
+      <Clock />
     </>
   );
 }

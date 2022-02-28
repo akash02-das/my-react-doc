@@ -12,6 +12,7 @@ class Clock extends React.Component {
   // Or shortcut way to write  state
   state = {
     time: new Date(),
+    language: 'bn-BD'
   };
 
   // React Lifecycle Method
@@ -28,14 +29,20 @@ class Clock extends React.Component {
     this.setState({ time: new Date() });
   }
 
+  // Used arrow function to avoid 'this' keyword complications
+  changeLanguage = (locale) => {
+    this.setState({language: locale})
+  }
+
   render() {
-    const { locale } = this.props; // Destructuring Props
-    let clockTime = this.state.time.toLocaleTimeString(locale);
+    const { time, language } = this.state; // Destructuring from state
+    let clockTime = time.toLocaleTimeString(language);
 
     return (
-      // Return JSX(Javascript XML)
       <div>
         <h1>Current Time: {clockTime}</h1>
+        {/*Used onClick event handler*/}
+        <button onClick={() => this.changeLanguage('en-US')}>Change Language</button>
       </div>
     );
   }
