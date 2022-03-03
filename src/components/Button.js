@@ -16,10 +16,9 @@ class Button extends Component {
     }
 
     render() {
-        console.log("Button Component Rendered")
-        const { handler, selectLanguage } = this.props;
+        const { handler, selectLanguage, btnText } = this.props;
 
-        return <button type="button" onClick={() => handler(selectLanguage)}>Change Language</button>
+        return <button type="button" onClick={() => handler(selectLanguage)}>{btnText}</button>
     }
 }
 

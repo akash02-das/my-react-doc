@@ -28,15 +28,19 @@ class Clock extends React.Component {
   }
 
   render() {
-    console.log("Clock Component Rendered")
     const { time, language } = this.state; // Destructuring from state
     let clockTime = time.toLocaleTimeString(language);
 
     return (
       <div>
-        <h1>Current Time: {clockTime}</h1>
-        {/* Rendered Button component and this component no need to render everytime when Clock component have rendered */}
-        <Button handler={this.changeLanguage} selectLanguage='en-US' />
+        <h1>Clock: {clockTime}</h1>
+
+        {/* Conditional rendering */}
+        {(language === 'bn-BD') ? (
+            <Button handler={this.changeLanguage} selectLanguage='en-US' btnText='English Clock' />
+        ) : (
+            <Button handler={this.changeLanguage} selectLanguage='bn-BD' btnText='Bengali Clock' />
+        )}
       </div>
     );
   }
