@@ -1,11 +1,10 @@
-import Clock from './components/Clock';
-import ClockList from "./components/ClockList";
+import Form from './components/Form'
+
 
 function App() {
     return (
         <>
-            <Clock/>
-            <ClockList />
+            <Form />
         </>
     );
 }
